@@ -80,12 +80,12 @@ for x in akcje:
             for czytelnik in wypozyczalnia.tablica_czytelnikow:
                 if czytelnik.nazwisko == kasacja[1].strip():
                     wypozyczona = True
-                    print(wypozyczalnia.wypozycz(czytelnik, tytul))
+                    print(wypozyczalnia.wypozyczanie(czytelnik, tytul))
                     break
             if not wypozyczona:
                     nowy_czytelnik = Czytelnik(kasacja[1].strip(), [])
                     wypozyczalnia.tablica_czytelnikow.append(nowy_czytelnik)
-                    print(wypozyczalnia.wypozycz(nowy_czytelnik, tytul))
+                    print(wypozyczalnia.wypozyczanie(nowy_czytelnik, tytul))
     if kasacja[0].strip() == "oddaj":
                         nazwisko = kasacja[1].strip()
                         tytul = kasacja[2].strip()
