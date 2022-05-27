@@ -3,12 +3,12 @@ import string
 
 
 b = int(input())
-#akcje = [input().strip(' ') for operacja in range(n)]
+akcje = [input().strip(' ') for operacja in range(b)]
 kasacja = []
 
 
-for c in range(b):
-    akcje = eval(input())
+#for c in range(b):
+    #akcje = eval(input())
 
 class Biblioteka:
 
