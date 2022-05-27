@@ -1,3 +1,5 @@
+import string
+
 tablica_ksiazek = []
 tablica_egzemplarze = []
 tablica_czytelnicy = []
@@ -64,7 +66,7 @@ wypozyczalnia = Biblioteka(15)
 #tytul = tytul.translate(str.maketrans('','',string.punctuation))
 
 for x in akcje:
-	tekst = x.translate(str.maketrans('','',string.punctuation))
+	tekst = x.translate(str.maketrans('','', string.punctuation))
 
 	if tekst[0].strip() == "dodaj":
 		ksiazka = Ksiazka(tytul=tekst[1].strip(), autor=tekst[2].strip(), rok=tekst[3].strip())
