@@ -1,8 +1,6 @@
 import string
 
-tablica_ksiazek = []
-tablica_egzemplarze = []
-tablica_czytelnicy = []
+
 
 b = int(input())
 #akcje = [input().strip(' ') for operacja in range(n)]
@@ -13,6 +11,10 @@ for c in range(b):
     akcje = eval(input())
 
 class Biblioteka:
+
+    tablica_ksiazek = []
+    tablica_egzemplarze = []
+    tablica_czytelnicy = []
     def __init__(self, limit):
         self.limit = limit
         
