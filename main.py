@@ -14,7 +14,7 @@ class Biblioteka:
         self.tablica_ksiazek.append(ksiazka)
         return True
         
-    def __wypozyczanie__(self, czytelnik, tytul):
+    def wypozyczanie(self, czytelnik, tytul):
         if len(czytelnik.lista_czytelnika) < 3:
             for ksiazka_wypozyczona in self.tablica_ksiazek:
                 if ksiazka_wypozyczona.tytul == tytul:
@@ -22,12 +22,12 @@ class Biblioteka:
                         if ksiazka_czytelnika.tytul == tytul:
                             return False
                     czytelnik.lista_czytelnika.append(ksiazka_wypozyczona)
-                    self.ksiazki.remove(ksiazka_wypozyczona)
+                    self.tablica_ksiazek.remove(ksiazka_wypozyczona)
                     return True
         return False        
     
     def oddaj(self, nazwisko, tytul):
-        for czytelnik in self.tablica_tablica_czy:
+        for czytelnik in self.tablica_czytelnikow:
             if czytelnik.nazwisko == nazwisko:
                 for ksiazka_czytelnika in czytelnik.lista_czytelnika:
                     if ksiazka_czytelnika.tytul == tytul:
