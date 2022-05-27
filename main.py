@@ -66,27 +66,27 @@ wypozyczalnia = Biblioteka(15)
 #tytul = tytul.translate(str.maketrans('','',string.punctuation))
 
 for x in akcje:
-	#usun = x.translate(str.maketrans('','', string.punctuation))
+	#kasacja = x.translate(str.maketrans('','', string.punctuation))
     tekst = x.replace("(", "")
     tekst2 = tekst.replace(")", "")
     cudzyslow = tekst2.replace("\"", "")
-    usun = cudzyslow.split(", ")
-    if usun[0].strip() == "dodaj":
-        ksiazka = Ksiazka(tytul=usun[1].strip(), autor=usun[2].strip(), rok=usun[3].strip())
+    kasacja = cudzyslow.split(", ")
+    if kasacja[0].strip() == "dodaj":
+        ksiazka = Ksiazka(tytul=kasacja[1].strip(), autor=kasacja[2].strip(), rok=kasacja[3].strip())
         print(wypozyczalnia.ksiazka_dodaj(ksiazka))
-    if usun[0].strip() == "wypozycz":
+    if kasacja[0].strip() == "wypozycz":
             wypozyczona = False
-            tytul = usun[2].strip()
+            tytul = kasacja[2].strip()
             for czytelnik in wypozyczalnia.tablica_czytelnikow:
-                if czytelnik.nazwisko == usun[1].strip():
+                if czytelnik.nazwisko == kasacja[1].strip():
                     wypozyczona = True
                     print(wypozyczalnia.wypozycz(czytelnik, tytul))
                     break
             if not wypozyczona:
-                    nowy_czytelnik = Czytelnik(usun[1].strip(), [])
+                    nowy_czytelnik = Czytelnik(kasacja[1].strip(), [])
                     wypozyczalnia.tablica_czytelnikow.append(nowy_czytelnik)
                     print(wypozyczalnia.wypozycz(nowy_czytelnik, tytul))
-    if usun[0].strip() == "oddaj":
-                        nazwisko = usun[1].strip()
-                        tytul = usun[2].strip()
+    if kasacja[0].strip() == "oddaj":
+                        nazwisko = kasacja[1].strip()
+                        tytul = kasacja[2].strip()
                         print(wypozyczalnia.oddaj(nazwisko, tytul))
