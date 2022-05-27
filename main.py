@@ -2,9 +2,6 @@ import string
 
 
 
-b = int(input())
-akcje = [input().strip(' ') for operacja in range(b)]
-kasacja = []
 
 
 #for c in range(b):
@@ -14,7 +11,7 @@ class Biblioteka:
 
     tablica_ksiazek = []
     tablica_egzemplarze = []
-    tablica_czytelnicy = []
+    tablica_czytelnikow = []
 
     def __init__(self, limit):
         self.limit = limit
@@ -36,7 +33,7 @@ class Biblioteka:
         return False        
     
     def oddaj(self, nazwisko, tytul):
-        for czytelnik in self.tablica_czytelnicy:
+        for czytelnik in self.tablica_tablica_czy:
             if czytelnik.nazwisko == nazwisko:
                 for ksiazka_czytelnika in czytelnik.lista_czytelnika:
                     if ksiazka_czytelnika.tytul == tytul:
@@ -68,6 +65,9 @@ class Czytelnik:
 
 
 
+b = int(input())
+akcje = [input().strip(' ') for operacja in range(b)]
+kasacja = []
 wypozyczalnia = Biblioteka(15)
 #tytul = tytul.translate(str.maketrans('','',string.punctuation))
 
@@ -83,16 +83,16 @@ for x in akcje:
         if usun[0].strip() == "wypozycz":
             wypozyczona = False
             tytul = usun[2].strip()
-            for czytelnik in wypozyczalnia.czytelnicy:
+            for czytelnik in wypozyczalnia.tablica_czytelnikow:
                 if czytelnik.nazwisko == usun[1].strip():
                     wypozyczona = True
                     print(wypozyczalnia.wypozycz(czytelnik, tytul))
                     break
                 if not wypozyczona:
                     nowy_czytelnik = Czytelnik(usun[1].strip(), [])
-                    wypozyczalnia.czytelnicy.append(nowy_czytelnik)
+                    wypozyczalnia.tablica_czytelnikow.append(nowy_czytelnik)
                     print(wypozyczalnia.wypozycz(nowy_czytelnik, tytul))
                     if usun[0].strip() == "oddaj":
-                        osoba_nazwisko = usun[1].strip()
+                        nazwisko = usun[1].strip()
                         tytul = usun[2].strip()
-                        print(wypozyczalnia.oddaj(osoba_nazwisko, tytul))
+                        print(wypozyczalnia.oddaj(nazwisko, tytul))
