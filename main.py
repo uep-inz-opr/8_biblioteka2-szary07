@@ -46,7 +46,7 @@ class Ksiazka:
 		self.rok = rok
 
 
-class Pozycja:
+class Egzemplarz:
 	def __init__(self, rok_wydania, wypozyczony):
 		self.rok_wydania = rok_wydania
 		self.wypozyczony = wypozyczony
@@ -60,7 +60,7 @@ class Czytelnik:
 
 
 b = int(input())
-akcje = [input().strip(' ') for operacja in range(b)]
+akcje = [input().strip(' ') for akcje in range(b)]
 kasacja = []
 wypozyczalnia = Biblioteka(15)
 #tytul = tytul.translate(str.maketrans('','',string.punctuation))
