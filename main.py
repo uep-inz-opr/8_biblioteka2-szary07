@@ -1,9 +1,3 @@
-import string
-
-
-
-
-
 #for c in range(b):
     #akcje = eval(input())
 
@@ -80,7 +74,7 @@ for x in akcje:
     if usun[0].strip() == "dodaj":
         ksiazka = Ksiazka(tytul=usun[1].strip(), autor=usun[2].strip(), rok=usun[3].strip())
         print(wypozyczalnia.ksiazka_dodaj(ksiazka))
-        if usun[0].strip() == "wypozycz":
+    if usun[0].strip() == "wypozycz":
             wypozyczona = False
             tytul = usun[2].strip()
             for czytelnik in wypozyczalnia.tablica_czytelnikow:
@@ -88,11 +82,11 @@ for x in akcje:
                     wypozyczona = True
                     print(wypozyczalnia.wypozycz(czytelnik, tytul))
                     break
-                if not wypozyczona:
+            if not wypozyczona:
                     nowy_czytelnik = Czytelnik(usun[1].strip(), [])
                     wypozyczalnia.tablica_czytelnikow.append(nowy_czytelnik)
                     print(wypozyczalnia.wypozycz(nowy_czytelnik, tytul))
-                    if usun[0].strip() == "oddaj":
+    if usun[0].strip() == "oddaj":
                         nazwisko = usun[1].strip()
                         tytul = usun[2].strip()
                         print(wypozyczalnia.oddaj(nazwisko, tytul))
