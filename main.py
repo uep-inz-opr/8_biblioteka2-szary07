@@ -15,27 +15,28 @@ class Biblioteka:
     tablica_ksiazek = []
     tablica_egzemplarze = []
     tablica_czytelnicy = []
+
     def __init__(self, limit):
         self.limit = limit
         
-    def __ksiazka_dodaj__(self, ksiazka):
+    def ksiazka_dodaj(self, ksiazka):
         self.tablica_ksiazek.append(ksiazka)
         return True
         
         
-    def oddaj(self, osoba_nazwisko, tytul):
-        for czytelnik in self.czytelnicy:
-            if czytelnik.nazwisko == osoba_nazwisko:
+    def oddaj(self, nazwisko, tytul):
+        for czytelnik in self.tablica_czytelnicy:
+            if czytelnik.nazwisko == nazwisko:
                 for ksiazka_czytelnika in czytelnik.lista_czytelnika:
                     if ksiazka_czytelnika.tytul == tytul:
-                        self.ksiazki.append(ksiazka_czytelnika)
+                        self.tablica_ksiazek.append(ksiazka_czytelnika)
                         czytelnik.lista_czytelnika.remove(ksiazka_czytelnika)
                         return True
         return False   
     
     def __wypozyczanie__(self, czytelnik, tytul):
         if len(czytelnik.lista_czytelnika) < 3:
-            for ksiazka_wypozyczona in self.ksiazki:
+            for ksiazka_wypozyczona in self.tablica_ksiazek:
                 if ksiazka_wypozyczona.tytul == tytul:
                     for ksiazka_czytelnika in czytelnik.lista_czytelnika:
                         if ksiazka_czytelnika.tytul == tytul:
@@ -75,7 +76,7 @@ for x in akcje:
     usun = cudzyslow.split(", ")
     if usun[0].strip() == "dodaj":
         ksiazka = Ksiazka(tytul=usun[1].strip(), autor=usun[2].strip(), rok=usun[3].strip())
-        print(wypozyczalnia.dodaj_egzemplarz_ksiazki(ksiazka))
+        print(wypozyczalnia.ksiazka_dodaj(ksiazka))
         if usun[0].strip() == "wypozycz":
             wypozyczona = False
             tytul = usun[2].strip()
